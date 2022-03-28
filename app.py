@@ -18,8 +18,9 @@ def json():
 
 @app.route('/query')
 def query():
-    name = 
-    return '<h1>You are on the query page!</h1>'
+    name = request.args.get('name')
+    location = request.args.get('location')
+    return '<h1>Hi {}.  You are from {}.  You are on the query page!</h1>'.format(name, location)
 
 if __name__ == "__main__":
     app.run(debug=True)
