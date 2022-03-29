@@ -36,5 +36,17 @@ def process():
     location = request.form['location']
     return '<h1>Hello {}.  You are from {}.  You have submitted the form successfully!</h1>'.format(name, location)
 
+@app.route('/processjson', methods=['POST'])
+def processjson():
+
+    data = request.get_json()
+
+    name = data['name']
+    location = data['location']
+
+    randomlist = data['randomlist']
+
+    return jsonify({'result' : 'Success!', 'name' : name, 'location' : location, 'randomkeyinlist' : randomlist[1]})
+
 if __name__ == "__main__":
     app.run(debug=True)
