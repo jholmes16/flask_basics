@@ -12,5 +12,13 @@
     {% else %}
       <h2>This is not being dislplayed!</h2>
     {% endif %}
+
+    {% for x in myList %}
+      <h3>{{ x }}</h3>
+    {% endfor %}
+
+    {% for x in listofdictionaries %}
+      <h4>{{ x.name }}</h4>
+    {% endfor %}
   </body>
 </html>
