@@ -5,6 +5,12 @@
     <title>Home</title>
   </head>
   <body>
-    <h1>Hello {{ name }} you are on the home page!</h1>
+    <h1>Hello {{ name }}, you are on the home page!</h1>
+
+    {% if display %}
+      <h2>This is being displayed!</h2>
+    {% else %}
+      <h2>This is not being dislplayed!</h2>
+    {% endif %}
   </body>
 </html>
