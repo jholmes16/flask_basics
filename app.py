@@ -1,9 +1,9 @@
-from flask import Flask, jsonify,request, url_for, redirect, session
+from flask import Flask, jsonify,request, url_for, redirect, session, render_template
 
 app = Flask(__name__)
 
 #configuration values link https://flask.palletsprojects.com/en/2.1.x/config/
-app.config['DEBUG'] = True
+app.config['DEBUG'] = True #also auto reload screen on changes
 app.config['SECRET_KEY'] = 'thisisasecret!' #needed for sessions to store data
 
 @app.route('/')
@@ -36,11 +36,7 @@ def query():
 def theform():
 
     if request.method == 'GET':
-        return  '''<form method="POST" action="/theform">
-                    <input type="text" name="name">
-                    <input type="text" name="location">
-                    <input type="submit" value="Submit">
-                </form>'''
+        return render_template('form.html')
     else:
         name = request.form['name']
         location = request.form['location']
