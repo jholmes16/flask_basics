@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>The Form</title>
-  </head>
-  <body>
-    <h1>Pleas fill out the form</h1>
-    <form method="POST" action="/theform">
-        <input type="text" name="name">
-        <input type="text" name="location">
-        <input type="submit" value="Submit">
-    </form>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %} The form {% endblock %}
+
+{%block content %}
+  {{ super() }}
+  <h1>Pleas fill out the form</h1>
+  <form method="POST" action="/theform">
+      <input type="text" name="name">
+      <input type="text" name="location">
+      <input type="submit" value="Submit">
+  </form>
+{% endblock %}

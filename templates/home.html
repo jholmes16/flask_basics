@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Hello {{ name }}, you are on the home page!</h1>
+{% extends 'base.html' %}
 
-    {% if display %}
-      <h2>This is being displayed!</h2>
-    {% else %}
-      <h2>This is not being dislplayed!</h2>
-    {% endif %}
+{% block title %} Homepage {% endblock %}
 
-    {% for x in myList %}
-      <h3>{{ x }}</h3>
-    {% endfor %}
+{%block content %}
+  {{ super() }}
+  <h1>Hello {{ name }}, you are on the home page!</h1>
 
-    {% for x in listofdictionaries %}
-      <h4>{{ x.name }}</h4>
-    {% endfor %}
-  </body>
-</html>
+  {% if display %}
+    <h2>This is being displayed!</h2>
+  {% else %}
+    <h2>This is not being dislplayed!</h2>
+  {% endif %}
+
+  {% for x in myList %}
+    <h3>{{ x }}</h3>
+  {% endfor %}
+
+  {% for x in listofdictionaries %}
+    <h4>{{ x.name }}</h4>
+  {% endfor %}
+
+  <img src="{{ url_for('static', filename='images/prettyprinted.png') }}">
+{% endblock %}
