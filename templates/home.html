@@ -6,6 +6,12 @@
   {{ super() }}
   <h1>Hello {{ name }}, you are on the home page!</h1>
 
+  <h1>Database Results</h1>
+
+  {% for item in results %}
+    <h2>ID: {{ item.id }} Name: {{ item.name}} Location: {{ item.location }}</h2>
+  {% endfor %}
+
   {% if display %}
     <h2>This is being displayed!</h2>
   {% else %}
@@ -21,4 +27,6 @@
   {% endfor %}
 
   <img src="{{ url_for('static', filename='images/prettyprinted.png') }}">
+
+  {% include "include_this.html" %}
 {% endblock %}
