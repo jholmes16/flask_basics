@@ -32,7 +32,12 @@ def index():
 @app.route('/home/<string:name>', methods=['POST', 'GET'])
 def home(name):
     session['name'] = name
-    return render_template('home.html', name=name, display=True, myList=['one', 'two', 'three', 'four'], listofdictionaries=[{'name' : 'Zach'}, {'name' : 'Zoey'}])
+    db = get_db()
+    cur = db.execute('select id, name, location from users')
+    results = cur.fetchall()
+
+    return render_template('home.html', name=name, display=True, \
+    myList=['one', 'two', 'three', 'four'], listofdictionaries=[{'name' : 'Zach'}, {'name' : 'Zoey'}], results=results)
 
 @app.route('/json')
 def json():
